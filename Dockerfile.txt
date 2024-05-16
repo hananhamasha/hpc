@@ -1,31 +1,16 @@
 FROM kalilinux/kali-rolling
 
-
-
 # Set environment variables
-
 ENV PYTHONUNBUFFERED=1
-
 ENV PYTHONIOENCODING=UTF-8
 
-
-
 # Update packages and install Python 3
-
 RUN apt-get update \
-
  && apt-get -y upgrade \
-
  && apt-get -y install python3
 
-
-
 # Add the contents of the server.tar.gz file to the root directory of the container
-
 ADD server.tar.gz /
 
-
-
 # Specify the command to run when the container starts
-
 CMD [ "python3", "/server.py", "25565" ]
